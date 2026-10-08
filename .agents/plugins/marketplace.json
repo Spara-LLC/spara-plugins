@@ -1,0 +1,19 @@
+{
+  "name": "spara",
+  "interface": {
+    "displayName": "Spara"
+  },
+  "plugins": [
+    {
+      "name": "spara-aegis",
+      "source": {
+        "source": "local",
+        "path": "./plugins/spara-aegis"
+      },
+      "interface": {
+        "displayName": "Spara Aegis"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
