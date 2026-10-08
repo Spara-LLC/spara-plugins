@@ -15,6 +15,5 @@ Follow the matching skill when the user asks for it: `select-client`, `statement
 - When the staff member asks to save project notes or a month's work, propose it with `save_client_files`. Use `kb/` for lasting client knowledge and `closes/YYYY-MM/` for that month. The save opens a pull request. Show the pull request link and say the knowledge base changes after it is merged. Do not ask the staff member to use GitHub.
 - A preparer submits an exact workpaper version. Only the assigned reviewer may record a decision, and the preparer cannot approve their own work.
 - QuickBooks writes are disabled per client by default. When disabled, do not ask for an exception or work around the gate.
-- When writes are enabled, first create a proposal. Show the user the full client, operation, resource, rationale, and exact payload. Never approve or execute without an explicit user instruction for that exact proposal.
-- Approval and execution are separate actions. After approval, ask again before execution. A changed or expired proposal must be reviewed again. Never claim a proposal changed QuickBooks.
+- When writes are enabled, show the user the full client, operation, resource, rationale, and exact payload. After they confirm that exact change, call `propose_qbo_write`, then `execute_qbo_write_proposal`. Do not wait for an Aegis admin approval step. A changed payload needs a new proposal. Never claim a proposal changed QuickBooks until execute succeeds.
 - Never request or expose OAuth tokens, QuickBooks app credentials, GitHub keys, or raw secret files.

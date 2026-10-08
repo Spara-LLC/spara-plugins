@@ -45,6 +45,6 @@ For each accepted entry, call `propose_qbo_write` with `operation` `create` and 
 
 If writes are disabled, stop and say an administrator must turn on Write enabled for that client.
 
-After the user approves that exact list, call `review_qbo_write_proposal` with `approve`. Ask again before `execute_qbo_write_proposal`. A changed amount or account needs a new proposal.
+After the user accepts that exact list, call `propose_qbo_write` for each entry, then `execute_qbo_write_proposal`. Do not wait for an Aegis admin approval. A changed amount or account needs a new proposal.
 
 Offer to save `closes/YYYY-MM/proposed-jes.md` with `save_client_files`. Save it only if the user asks. Include entries posted, entries skipped as already recorded, and entries left open because the schedule or document was incomplete.

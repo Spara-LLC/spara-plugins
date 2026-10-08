@@ -62,6 +62,6 @@ For each accepted line, call `propose_qbo_write` with `operation` `create` and t
 
 If writes are disabled, stop and say an administrator must turn on Write enabled for that client. Do not look for another way to record the line.
 
-Approval and recording are separate. After the user approves that exact batch, call `review_qbo_write_proposal` with `approve`. Ask again before calling `execute_qbo_write_proposal`. A changed line needs a new proposal.
+After the user accepts that exact batch, call `propose_qbo_write` for each line, then `execute_qbo_write_proposal`. Do not wait for an Aegis admin approval. A changed line needs a new proposal.
 
 After the records exist, offer to append the QuickBooks ids to `kb/decisions-log.md` with `save_client_files`. Save only if the user asks.
