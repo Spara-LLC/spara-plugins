@@ -1,0 +1,44 @@
+{
+  "name": "spara-aegis",
+  "version": "1.3.1",
+  "description": "Spara Aegis gives each staff member the QuickBooks companies and client files assigned to their own Microsoft account.",
+  "author": {
+    "name": "Spara",
+    "email": "hello@sparaaegis.com",
+    "url": "https://sparaaegis.com"
+  },
+  "homepage": "https://sparaaegis.com",
+  "repository": "https://github.com/Spara-LLC/spara-plugins/tree/main/plugins/spara-aegis",
+  "license": "Proprietary",
+  "keywords": ["accounting", "quickbooks", "bookkeeping", "spara"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Spara Aegis",
+    "shortDescription": "Client accounting in ChatGPT",
+    "longDescription": "Spara Aegis connects ChatGPT to the QuickBooks companies and client files assigned to the signed-in Spara staff member. List those clients first, then select one before reading reports, records, or notes. QuickBooks stays read-only unless an administrator enables writes for that client. A write is proposed with its full details, approved separately, and executed only after another explicit confirmation. The connector cannot see clients that are not assigned to the signed-in person.",
+    "developerName": "Spara",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://sparaaegis.com",
+    "supportURL": "https://sparaaegis.com",
+    "privacyPolicyURL": "https://sparaaegis.com",
+    "termsOfServiceURL": "https://sparaaegis.com",
+    "defaultPrompt": [
+      "List the clients assigned to me.",
+      "Show this month's profit and loss for the client I select.",
+      "Post the bank statement I attach after I confirm the client and account."
+    ],
+    "brandColor": "#111111",
+    "brandColorDark": "#F2F2F2",
+    "composerIcon": "./assets/icon.png",
+    "composerIconDark": "./assets/icon-dark.png",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png",
+    "screenshots": []
+  }
+}

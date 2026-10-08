@@ -10,7 +10,13 @@ Catalog: [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json)
 |---|---|---|
 | Spara Aegis | [`plugins/spara-aegis`](plugins/spara-aegis) | Client QuickBooks and bookkeeping work via `https://sparaaegis.com/mcp` |
 
-Add another plugin by creating `plugins/<name>/` with a `plugin.json`, then appending an entry to the marketplace catalog.
+Each plugin uses the Codex marketplace layout:
+
+- `.codex-plugin/plugin.json`
+- `.mcp.json` when the plugin connects an MCP server
+- `skills/` and `assets/` as needed
+
+Add another plugin by creating `plugins/<name>/`, then appending an entry to the marketplace catalog.
 
 ## Import into ChatGPT
 
