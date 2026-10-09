@@ -1,6 +1,6 @@
 {
   "name": "spara-aegis",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Spara Aegis gives each staff member the QuickBooks companies and client files assigned to their own Microsoft account.",
   "author": {
     "name": "Spara",
@@ -12,7 +12,7 @@
   "license": "Proprietary",
   "keywords": ["accounting", "quickbooks", "bookkeeping", "spara"],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
   "interface": {
     "displayName": "Spara Aegis",
     "shortDescription": "Client accounting in ChatGPT",
