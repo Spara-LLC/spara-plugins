@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "spara-aegis": {
-      "type": "http",
-      "url": "https://sparaaegis.com/mcp",
-      "oauth_resource": "https://sparaaegis.com/mcp"
-    }
-  }
-}
