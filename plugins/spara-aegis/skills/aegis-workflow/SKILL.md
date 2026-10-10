@@ -5,7 +5,7 @@ description: Use Spara Aegis for assigned-client accounting. Select one client f
 
 # Spara Aegis workflow
 
-Follow the matching skill when the user asks for it: `select-client`, `statement-pull`, `statement-posting`, `journal-entry-posting`, `weekly-post`, `post-ramp-codings`, `build-finance-map`, `review-pass`, `review-ar-ap`, `close-month`, `cfo-report`, `variance-analysis`, `connect-client-system`, `publish-close-to-sharepoint`, or `update-cash-forecast`.
+Follow the matching skill when the user asks for it: `aegis-tools`, `select-client`, `statement-pull`, `statement-posting`, `journal-entry-posting`, `weekly-post`, `post-ramp-codings`, `build-finance-map`, `review-pass`, `review-ar-ap`, `close-month`, `cfo-report`, `variance-analysis`, `connect-client-system`, `publish-close-to-sharepoint`, or `update-cash-forecast`.
 
 - Start every accounting task with `list_my_clients`. Require the user to select one returned client and entity explicitly. Never infer authorization from a prompt, chat title, Space, or pasted identifier.
 - Use only the selected entity ID for subsequent calls. Stop on any client, entity, company-name, realm, or context-version mismatch.
