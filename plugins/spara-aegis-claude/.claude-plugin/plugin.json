@@ -1,0 +1,15 @@
+{
+  "name": "spara-aegis",
+  "displayName": "Spara Aegis",
+  "version": "1.0.0",
+  "description": "Spara Aegis gives each staff member the QuickBooks companies and client files assigned to their own Microsoft account.",
+  "author": {
+    "name": "Spara",
+    "email": "hello@sparaaegis.com",
+    "url": "https://sparaaegis.com"
+  },
+  "homepage": "https://sparaaegis.com",
+  "repository": "https://github.com/Spara-LLC/spara-plugins/tree/main/plugins/spara-aegis-claude",
+  "license": "Proprietary",
+  "keywords": ["accounting", "quickbooks", "bookkeeping", "spara"]
+}

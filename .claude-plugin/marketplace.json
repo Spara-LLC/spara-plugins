@@ -1,0 +1,28 @@
+{
+  "name": "spara",
+  "description": "Spara plugins for Claude Code.",
+  "owner": {
+    "name": "Spara",
+    "email": "hello@sparaaegis.com",
+    "url": "https://sparaaegis.com"
+  },
+  "plugins": [
+    {
+      "name": "spara-aegis",
+      "displayName": "Spara Aegis",
+      "description": "Spara Aegis gives each staff member the QuickBooks companies and client files assigned to their own Microsoft account.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Spara",
+        "email": "hello@sparaaegis.com",
+        "url": "https://sparaaegis.com"
+      },
+      "homepage": "https://sparaaegis.com",
+      "repository": "https://github.com/Spara-LLC/spara-plugins",
+      "license": "Proprietary",
+      "keywords": ["accounting", "quickbooks", "bookkeeping", "spara"],
+      "category": "Productivity",
+      "source": "./plugins/spara-aegis-claude"
+    }
+  ]
+}
