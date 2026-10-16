@@ -62,6 +62,6 @@ For each accepted line, call `propose_qbo_write` with `operation` `create` and t
 
 If writes are disabled, stop and say an administrator must turn on Write enabled for that client. Do not look for another way to record the line.
 
-After the user accepts that exact batch, call `propose_qbo_write` for each line, then `execute_qbo_write_proposal`. Do not wait for an Aegis admin approval. A changed line needs a new proposal.
+After the user accepts that exact batch, call `propose_qbo_write` for each line. Each call queues the line in the client's open Aegis approval batch and returns an `approvalUrl`; it never writes to QuickBooks. Do not call `execute_qbo_write_proposal`: it is unavailable while web approval is required. Give the user the `approvalUrl` (in Claude, the review card's **Review & approve in Aegis** button opens it). An Aegis administrator reviews, approves, and posts the batch in the Aegis web app. A changed line needs a new proposal. Never say a line is posted until `get_qbo_batch` shows the batch posted.
 
-After the records exist, offer to append the QuickBooks ids to `kb/decisions-log.md` with `save_client_files`. Save only if the user asks.
+After the batch is posted in Aegis and the records exist, offer to append the QuickBooks ids to `kb/decisions-log.md` with `save_client_files`. Save only if the user asks.

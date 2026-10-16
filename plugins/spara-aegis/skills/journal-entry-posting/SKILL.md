@@ -45,6 +45,6 @@ For each accepted entry, call `propose_qbo_write` with `operation` `create` and 
 
 If writes are disabled, stop and say an administrator must turn on Write enabled for that client.
 
-After the user accepts that exact list, call `propose_qbo_write` for each entry, then `execute_qbo_write_proposal`. Do not wait for an Aegis admin approval. A changed amount or account needs a new proposal.
+After the user accepts that exact list, call `propose_qbo_write` for each entry. Each call queues the entry in the client's open Aegis approval batch and returns an `approvalUrl`; it never writes to QuickBooks. Do not call `execute_qbo_write_proposal`: it is unavailable while web approval is required. Give the user the `approvalUrl` (in Claude, the review card's **Review & approve in Aegis** button opens it). An Aegis administrator reviews, approves, and posts the batch in the Aegis web app. A changed amount or account needs a new proposal. Never say an entry is posted until `get_qbo_batch` shows the batch posted.
 
-Offer to save `closes/YYYY-MM/proposed-jes.md` with `save_client_files`. Save it only if the user asks. Include entries posted, entries skipped as already recorded, and entries left open because the schedule or document was incomplete.
+Offer to save `closes/YYYY-MM/proposed-jes.md` with `save_client_files`. Save it only if the user asks. Include entries queued for approval (with the `approvalUrl`), entries skipped as already recorded, and entries left open because the schedule or document was incomplete.
