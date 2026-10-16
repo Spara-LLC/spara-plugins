@@ -38,6 +38,10 @@ Karbon writes need an explicit yes. `log_crm_touch`, `propose_crm_write`, and `c
 
 `get_website_traffic` reads stored site traffic. It is admin-only: it is available only on the Aegis-Admin connector (`https://sparaaegis.com/mcp/admin`) when Marketing is enabled. The staff Aegis connector (`https://sparaaegis.com/mcp`) does not expose it, and the same applies to Spara's own books and bank feed (`list_spara_bank_accounts`, `list_spara_bank_transactions`, `propose_spara_bank_coding_batch`) and `get_month_snapshot`. If the tool is missing, tell the user it needs the Aegis-Admin connector.
 
+## Profitability
+
+`get_client_profitability` returns client profitability: hours, standard value, labor cost, invoiced revenue, margin, realization, and effective rate per client, or one client's detail with a monthly trend and breakdowns. Pass `month` (`YYYY-MM`) and `span`, the same as the web Profitability pages. It reads Karbon time and invoices synced into Aegis, not QuickBooks, so use it instead of QuickBooks invoices or reports for profitability questions. It is admin-only: available only on the Aegis-Admin connector (`https://sparaaegis.com/mcp/admin`) when Profitability is enabled. If it is missing, tell the user it needs the Aegis-Admin connector.
+
 ## Web tools
 
 After sign-in at sparaaegis.com/tools:
