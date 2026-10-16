@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "aegis": {
-      "type": "http",
-      "url": "https://sparaaegis.com/mcp"
-    }
-  }
-}

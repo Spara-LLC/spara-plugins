@@ -7,7 +7,7 @@ Plugin marketplaces for Spara. ChatGPT / Codex and Claude Code each have their o
 | ChatGPT / Codex | [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json) | [`plugins/spara-aegis`](plugins/spara-aegis) |
 | Claude Code | [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) | [`plugins/spara-aegis-claude`](plugins/spara-aegis-claude) |
 
-The Claude plugin is a separate directory. ChatGPT marks any imported plugin that declares MCP servers as **Desktop only**, including a remote HTTPS server. Keep `.mcp.json` in `plugins/spara-aegis-claude` only. Do not add `.mcp.json`, `mcp.json`, or an `mcpServers` field under `plugins/spara-aegis`. An `.app.json` file does not clear that label while an MCP declaration is still present.
+The Claude plugin is a separate directory. ChatGPT marks any imported plugin that declares MCP servers as **Desktop only**, including a remote HTTPS server. The Claude plugin no longer bundles `.mcp.json` either; staff add the connectors themselves. Do not add `.mcp.json`, `mcp.json`, or an `mcpServers` field under `plugins/spara-aegis`. An `.app.json` file does not clear that label while an MCP declaration is still present.
 
 ## ChatGPT / Codex
 
@@ -56,7 +56,6 @@ Schema reference: [Reference an existing app with `.app.json`](https://learn.cha
 The Claude Code marketplace is [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json). The plugin is [`plugins/spara-aegis-claude`](plugins/spara-aegis-claude):
 
 - `.claude-plugin/plugin.json`
-- `.mcp.json` — remote HTTP server at `https://sparaaegis.com/mcp`
 - `skills/` — the ChatGPT plugin skills, with ChatGPT-only wording removed
 
 In Claude Code:
@@ -66,7 +65,7 @@ In Claude Code:
 /plugin install spara-aegis@spara
 ```
 
-`/plugin install` needs the plugin id. After the marketplace is added, `spara-aegis@spara` is Spara Aegis. `/plugin` opens the same list if you would rather pick it there. After it installs, run `/mcp` and sign in with the Spara Microsoft account when Aegis asks. QuickBooks stays read-only unless an administrator enables writes for that client.
+`/plugin install` needs the plugin id. After the marketplace is added, `spara-aegis@spara` is Spara Aegis. `/plugin` opens the same list if you would rather pick it there. The plugin ships skills only and bundles no MCP server. Add the connectors yourself (for example with `claude mcp add --transport http Aegis https://sparaaegis.com/mcp`, and for administrators `claude mcp add --transport http Aegis-Admin https://sparaaegis.com/mcp/admin`), then run `/mcp` and sign in with the Spara Microsoft account. Skills refer to tools by their plain names (for example `list_my_clients`), so any connector name works. Admin-only tools (Spara bank feed, `get_month_snapshot`, `get_website_traffic`) appear only on Aegis-Admin. QuickBooks stays read-only unless an administrator enables writes for that client.
 
 Guide: [Plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces).
 
