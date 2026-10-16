@@ -36,7 +36,7 @@ Karbon writes need an explicit yes. `log_crm_touch`, `propose_crm_write`, and `c
 
 ## Marketing
 
-`get_website_traffic` reads stored site traffic. It is there when Marketing is enabled for an administrator.
+`get_website_traffic` reads stored site traffic. It is admin-only: it is available only on the Aegis-Admin connector (`https://sparaaegis.com/mcp/admin`) when Marketing is enabled. The staff Aegis connector (`https://sparaaegis.com/mcp`) does not expose it, and the same applies to Spara's own books and bank feed (`list_spara_bank_accounts`, `list_spara_bank_transactions`, `propose_spara_bank_coding_batch`) and `get_month_snapshot`. If the tool is missing, tell the user it needs the Aegis-Admin connector.
 
 ## Web tools
 
