@@ -13,12 +13,17 @@ Web apps are at [sparaaegis.com/tools](https://sparaaegis.com/tools). Send them 
 
 - `list_my_clients` — clients and entities assigned to this person
 - `get_client_context` — knowledge-base files on `main` for the entity they select
-- `save_client_files` — opens a pull request for `kb/` or `closes/YYYY-MM/` notes. Main changes after it is merged
+- `list_client_files` — files on `main` in the client's allowed folders, with sizes. Works for every client, on QuickBooks or not. The default folders are `kb/`, `closes/`, `analysis/`, `reviews/`, `reports/` and `financials/`; an administrator can change them per client. Spreadsheets, PDFs and other binary files are listed as not readable
+- `read_client_file` — reads one md, csv, tsv, json or txt file from those folders, a window at a time. Large CSVs come back in line windows with the header, the total line count and `nextStartLine`
+- `save_client_files` — opens a pull request that adds or updates text files in the client's allowed folders. It needs read-and-write access on that client. Main changes after it is merged
+- `secrets/`, hidden folders such as `.cursor/`, and `.env` files are never listed, read or saved
 - `create_workpaper`, `add_workpaper_finding`, `submit_for_review`, `record_review_decision` — workpapers and review. The reviewer is a different person
 
 ## QuickBooks
 
-Access is per client: read-only, or read-and-write. Call `get_connection_status` for the entity they select. If a write tool is refused, say so and stop.
+`list_my_clients` returns each client's `booksSystem`. A client that is not on QuickBooks (`sage`, `other` or `none`) has no QuickBooks tools: they answer `NOT_ON_QUICKBOOKS`. Skip them for that client and use the repository file tools instead.
+
+Access is per client: read-only, or read-and-write. For a QuickBooks client, call `get_connection_status` for the entity they select. If a write tool is refused, say so and stop.
 
 Read: `get_financial_report`, `get_qbo_report`, `find_transactions`, `search_qbo_records`, `get_qbo_record`, `get_qbo_company_details`, `get_qbo_invoice_pdf`, `list_qbo_write_proposals`.
 
