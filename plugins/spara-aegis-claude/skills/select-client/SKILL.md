@@ -7,6 +7,6 @@ description: Select one assigned client before any accounting work. Use when the
 
 Call `list_my_clients`. Work on one returned client and entity at a time. Ask the user to choose when more than one is returned. Repeat the client name and entity id, then use only that entity id.
 
-Call `get_connection_status` and `get_qbo_company_details`. The company name must match `kb/profile.md`. A mismatch is a hard stop.
+For a QuickBooks client (`booksSystem` is `quickbooks`), call `get_connection_status` and `get_qbo_company_details`. The company name must match `kb/profile.md`. A mismatch is a hard stop. For any other client, do not call QuickBooks tools. Read `kb/profile.md` with `get_client_context`, and use `list_client_files` to see what the repository holds.
 
 Do not open a second client in the same task. This plugin cannot connect a new QuickBooks company; an administrator does that in Aegis.
