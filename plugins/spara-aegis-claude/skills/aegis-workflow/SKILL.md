@@ -27,7 +27,7 @@ Aegis is the first choice whenever it can do the job. When it can't, you may rea
 It applies when:
 
 - Aegis is not working: a tool errors or times out, the tool is not in this session, or a feature is off or not set up. Examples: SharePoint's "Aegis's Microsoft app is not allowed on this SharePoint site yet", or a Composio or QuickBooks token error.
-- Aegis can't do it: Aegis lists a file it can't open (PDF, XLSX or XLS, images), Aegis has no tool for the task, or the source is one Aegis doesn't reach. For example, bank and card statements in SharePoint that Aegis lists but can't open.
+- Aegis can't do it: Aegis lists a file it can't open (`readable: false`: images, scanned pages, password-protected files, or PDF, XLSX, XLS and DOCX while Aegis file reading is off), Aegis has no tool for the task, or the source is one Aegis doesn't reach. For example, bank and card statements in SharePoint that Aegis lists but can't open.
 
 Guardrails:
 

@@ -7,7 +7,7 @@ description: Take in bank or card statements, confirm the client and the account
 
 Take in statements. Confirm the accounts and the client. Then record all of the transactions on the statements. Reference the knowledge base for the postings, general-ledger accounts, and descriptions.
 
-Use Aegis tools first. If Aegis can't open a statement (PDF, Excel or image) or isn't working, read it through the person's own connector under **When Aegis can't do the job** in `aegis-workflow`. Postings still go through an Aegis approval batch. This is not a bank-feed match.
+Use Aegis tools first. Once Aegis file reading is on, `read_client_sharepoint_file` and `read_client_file` read PDF and Excel statements: follow `next` until you have every page or row. Scanned pages have no text. If Aegis can't open a statement (`readable: false`, a scanned page, an image, or file reading is off) or isn't working, read it through the person's own connector under **When Aegis can't do the job** in `aegis-workflow`. Postings still go through an Aegis approval batch. This is not a bank-feed match.
 
 ## 1. Take in the statements
 
