@@ -47,6 +47,10 @@ Karbon writes need an explicit yes. `log_crm_touch`, `propose_crm_write`, and `c
 
 `get_client_profitability` returns client profitability: hours, standard value, labor cost, invoiced revenue, margin, realization, and effective rate per client, or one client's detail with a monthly trend and breakdowns. Pass `month` (`YYYY-MM`) and `span`, the same as the web Profitability pages. It reads Karbon time and invoices synced into Aegis, not QuickBooks, so use it instead of QuickBooks invoices or reports for profitability questions. It is admin-only: available only on the Aegis-Admin connector (`https://sparaaegis.com/mcp/admin`) when Profitability is enabled. If it is missing, tell the user it needs the Aegis-Admin connector.
 
+## When Aegis can't do the job
+
+Aegis comes first. If an Aegis tool errors, times out, or is missing, or Aegis can't open a file (PDF, Excel, images) or reach a source, follow **When Aegis can't do the job** in `aegis-workflow`. The person's own connector for the same source may be used for reads, and for file saves after they confirm. Accounting postings stay in Aegis. An access refusal is not a gap.
+
 ## Web tools
 
 After sign-in at sparaaegis.com/tools:

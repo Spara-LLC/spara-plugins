@@ -1,6 +1,6 @@
 ---
 name: aegis-workflow
-description: Use Spara Aegis for assigned-client accounting. Select one client first, cite QuickBooks evidence, and propose writes before any execution.
+description: Use Spara Aegis first for assigned-client accounting, and the person's own connectors when Aegis can't do the job. Select one client first, cite QuickBooks evidence, and propose writes before any execution.
 ---
 
 # Spara Aegis workflow
@@ -19,3 +19,20 @@ Follow the matching skill when the user asks for it: `aegis-tools`, `select-clie
 - QuickBooks writes are disabled per client by default. When disabled, do not ask for an exception or work around the gate.
 - When writes are enabled, show the user the full client, operation, resource, rationale, and exact payload. After they confirm that exact change, call `propose_qbo_write`. Each call queues the change in the client's open Aegis approval batch and returns an `approvalUrl`; it never writes to QuickBooks. Do not call `execute_qbo_write_proposal`: it is unavailable while web approval is required. Give the user the `approvalUrl` (in Claude, the review card's **Review & approve in Aegis** button opens it). An Aegis administrator reviews, approves, and posts the batch in the Aegis web app. A changed payload needs a new proposal. Never claim QuickBooks changed until `get_qbo_batch` shows the batch posted.
 - Never request or expose OAuth tokens, QuickBooks app credentials, GitHub keys, or raw secret files.
+
+## When Aegis can't do the job
+
+Aegis is the first choice whenever it can do the job. When it can't, you may read the data through the person's own connector for the same source, if one is connected in this Claude or ChatGPT session: Microsoft 365, SharePoint or OneDrive, Outlook, QuickBooks, Karbon, or Ramp. This is allowed. It is not a workaround.
+
+It applies when:
+
+- Aegis is not working: a tool errors or times out, the tool is not in this session, or a feature is off or not set up. Examples: SharePoint's "Aegis's Microsoft app is not allowed on this SharePoint site yet", or a Composio or QuickBooks token error.
+- Aegis can't do it: Aegis lists a file it can't open (PDF, XLSX or XLS, images), Aegis has no tool for the task, or the source is one Aegis doesn't reach. For example, bank and card statements in SharePoint that Aegis lists but can't open.
+
+Guardrails:
+
+- Say plainly in the chat which connector you used and why: the Aegis error or the gap.
+- File saves, such as a SharePoint or OneDrive close pack or upload, need an explicit yes in the chat. Show the destination path and file names first.
+- QuickBooks and Ramp postings and other accounting writes stay in Aegis, approved in the Aegis web app. Data read this way, such as a statement, still posts through an Aegis approval batch. Never post through the other connector.
+- Do not fall back when Aegis refuses for access reasons: the client is not granted, access is read-only, the month is closed or locked, or `NOT_ON_QUICKBOOKS`. Those are decisions, not gaps. Say so and stop.
+- Log each fallback in the close notes or run notes: the date, the Aegis tool and the error or gap, the connector used, and what was read or saved.

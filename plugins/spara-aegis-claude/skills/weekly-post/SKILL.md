@@ -5,7 +5,7 @@ description: Weekly posting for one client. Code anything on attached bank state
 
 # Weekly post
 
-Select one client. Then follow `statement-posting` for each bank or card statement the user attaches.
+Select one client. Then follow `statement-posting` for each bank or card statement the user attaches or that is read through the person's own connector under **When Aegis can't do the job** in `aegis-workflow`.
 
 Leave Ramp card spend, Ramp bill pay, and reimbursements off the QuickBooks batch. Ramp sync owns those. Say which lines were skipped and why.
 
