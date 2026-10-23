@@ -23,7 +23,7 @@ Status is `needed`, `received`, or `n/a`. `n/a` requires the user to give a reas
 
 ## 3. Take in the statements
 
-Ask the user to attach the PDF, CSV, or image for each `needed` account, including the ending balance. Read the statement date range and ending balance from the file. Match it to the confirmed account. A file name is not enough.
+Ask the user to attach the PDF, CSV, or image for each `needed` account, including the ending balance. If a statement sits in SharePoint, OneDrive or Outlook and Aegis can't open it (PDF, Excel or image), read it through the person's own connector under **When Aegis can't do the job** in `aegis-workflow`. Read the statement date range and ending balance from the file. Match it to the confirmed account. A file name is not enough.
 
 Compare the statement ending balance with the QuickBooks book balance. List every difference. Do not change QuickBooks to force the balances to match.
 

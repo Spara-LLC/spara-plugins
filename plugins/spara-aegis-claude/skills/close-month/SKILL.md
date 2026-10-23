@@ -16,4 +16,4 @@ Run the close in this order:
 
 Do not start journal entries until statement intake is complete. Do not say the month is closed until the user says the human sign-off is done.
 
-Show a close checklist in the chat: statements, residuals, skipped sync lines, journal entries, and review findings. Save `closes/YYYY-MM/CLOSE-CHECKLIST.md` only after the user agrees.
+Show a close checklist in the chat: statements, residuals, skipped sync lines, journal entries, review findings, and any connector fallbacks (see **When Aegis can't do the job** in `aegis-workflow`). Save `closes/YYYY-MM/CLOSE-CHECKLIST.md` only after the user agrees.
