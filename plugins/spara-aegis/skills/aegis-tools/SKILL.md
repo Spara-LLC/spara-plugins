@@ -13,8 +13,9 @@ Web apps are at [sparaaegis.com/tools](https://sparaaegis.com/tools). Send them 
 
 - `list_my_clients` — clients and entities assigned to this person
 - `get_client_context` — knowledge-base files on `main` for the entity they select
-- `list_client_files` — files on `main` in the client's allowed folders, with sizes. Works for every client, on QuickBooks or not. The default folders are `kb/`, `closes/`, `analysis/`, `reviews/`, `reports/` and `financials/`; an administrator can change them per client. Spreadsheets, PDFs and other binary files are listed as not readable
+- `list_client_files` — files on `main` in the client's allowed folders, with sizes. Works for every client, on QuickBooks or not. The default folders are `kb/`, `closes/`, `analysis/`, `reviews/`, `reports/` and `financials/`; an administrator can change them per client. Each file says whether it is `readable`. Images and other binary files are not. PDF, Excel and Word files are readable only when Aegis file reading is on
 - `read_client_file` — reads one md, csv, tsv, json or txt file from those folders, a window at a time. Large CSVs come back in line windows with the header, the total line count and `nextStartLine`
+- PDF, Excel (xlsx, xlsm, xls) and Word (docx): once Aegis file reading is on, `read_client_file` and `read_client_sharepoint_file` return them as text. PDFs come page by page under `=== Page N of M ===`. Spreadsheets come as CSV rows under `=== Sheet "Name" rows a-b of n ===`, showing values as last saved in Excel. Follow `next` (`page`, `sheet` and `startRow`, or `startLine`) for more. Scanned pages have no text (no OCR). Password-protected or unreadable files come back with `readable: false` and a `reason`. For clients with AI anonymization, account and card numbers show only the last 4 digits. While file reading is off, these files are listed as not readable and the tool returns details and a link
 - `save_client_files` — opens a pull request that adds or updates text files in the client's allowed folders. It needs read-and-write access on that client. Main changes after it is merged
 - `secrets/`, hidden folders such as `.cursor/`, and `.env` files are never listed, read or saved
 - `create_workpaper`, `add_workpaper_finding`, `submit_for_review`, `record_review_decision` — workpapers and review. The reviewer is a different person
@@ -49,7 +50,7 @@ Karbon writes need an explicit yes. `log_crm_touch`, `propose_crm_write`, and `c
 
 ## When Aegis can't do the job
 
-Aegis comes first. If an Aegis tool errors, times out, or is missing, or Aegis can't open a file (PDF, Excel, images) or reach a source, follow **When Aegis can't do the job** in `aegis-workflow`. The person's own connector for the same source may be used for reads, and for file saves after they confirm. Accounting postings stay in Aegis. An access refusal is not a gap.
+Aegis comes first. If an Aegis tool errors, times out, or is missing, or Aegis can't open a file (it returns `readable: false`, for example images, scanned pages, password-protected files, or PDF, Excel and Word while file reading is off) or reach a source, follow **When Aegis can't do the job** in `aegis-workflow`. The person's own connector for the same source may be used for reads, and for file saves after they confirm. Accounting postings stay in Aegis. An access refusal is not a gap.
 
 ## Web tools
 
