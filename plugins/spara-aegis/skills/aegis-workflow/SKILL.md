@@ -19,3 +19,14 @@ Follow the matching skill when the user asks for it: `aegis-tools`, `select-clie
 - QuickBooks writes are disabled per client by default. When disabled, do not ask for an exception or work around the gate.
 - When writes are enabled, show the user the full client, operation, resource, rationale, and exact payload. After they confirm that exact change, call `propose_qbo_write`. Each call queues the change in the client's open Aegis approval batch and returns an `approvalUrl`; it never writes to QuickBooks. Do not call `execute_qbo_write_proposal`: it is unavailable while web approval is required. Give the user the `approvalUrl` (in Claude, the review card's **Review & approve in Aegis** button opens it). An Aegis administrator reviews, approves, and posts the batch in the Aegis web app. A changed payload needs a new proposal. Never claim QuickBooks changed until `get_qbo_batch` shows the batch posted.
 - Never request or expose OAuth tokens, QuickBooks app credentials, GitHub keys, or raw secret files.
+
+## When Aegis is not working
+
+Fall back only when Aegis itself fails: a tool errors or times out, the tool is not in this session, or a feature is off or not set up. Examples: SharePoint's "Aegis's Microsoft app is not allowed on this SharePoint site yet", or a Composio or QuickBooks token error.
+
+- You may then use the user's own connector for that same service, such as SharePoint or OneDrive, Outlook, QuickBooks, Karbon, or Ramp, if one is connected in this Claude or ChatGPT session.
+- Reads are allowed. Say plainly in the chat that Aegis was unavailable, which connector you used instead, and the Aegis error.
+- File saves, such as a SharePoint or OneDrive close pack or upload, need an explicit yes in the chat. Show the destination path and file names first.
+- QuickBooks and Ramp postings and other accounting writes stay in Aegis, approved in the Aegis web app. Through another connector, prepare the batch and stop.
+- Do not fall back when Aegis refuses for access reasons: the client is not granted, access is read-only, the month is closed or locked, or `NOT_ON_QUICKBOOKS`. Those are decisions, not outages. Say so and stop.
+- Log each fallback in the close notes or run notes: the date, the Aegis tool and error, the connector used, and what was read or saved.

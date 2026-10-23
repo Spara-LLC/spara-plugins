@@ -7,7 +7,7 @@ description: Take in bank or card statements, confirm the client and the account
 
 Take in statements. Confirm the accounts and the client. Then record all of the transactions on the statements. Reference the knowledge base for the postings, general-ledger accounts, and descriptions.
 
-Use only Aegis tools. This is not a bank-feed match.
+Use Aegis tools. If Aegis is not working, follow the fallback rule in `aegis-workflow`: you may read through the user's own connector, but postings still go through an Aegis approval batch. This is not a bank-feed match.
 
 ## 1. Take in the statements
 
